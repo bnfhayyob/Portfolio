@@ -197,4 +197,6 @@ export const portfolioConfig = {
     }
   ],
 
+  // More Links Information
+  moreLinks: [],
 };

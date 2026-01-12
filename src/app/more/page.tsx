@@ -16,51 +16,62 @@ import { portfolioConfig } from "@/config/portfolio.config";
 
 const morePage = () => {
   return (
-    // ABOUT PAGE
+    // MORE PAGE
     <div className="h-full w-full relative flex flex-col items-start gap-5 overflow-hidden">
       <Badge variant="secondary" className="gap-1.5 py-1 ">
         <PackagePlus className="h-4 w-4" />
         More
       </Badge>
       <div className="flex flex-col gap-3">
-        <Heading>More</Heading>
+        <Heading>More About Me</Heading>
+        <p className="text-lg text-muted-foreground max-w-2xl">
+          This section is currently under construction. Check back soon for updates!
+        </p>
       </div>
       <div className="h-auto w-full flex flex-wrap gap-3 p-2">
-        {portfolioConfig.moreLinks.map((value, indx) => {
-          return (
-            <FramerWrapper
-              key={indx}
-              className="max-w-[32%] max-lg:max-w-full"
-              y={0}
-              scale={0.8}
-              delay={indx / 4}
-              duration={0.15}
-            >
-              <Card className="w-full">
-                <CardHeader>
-                  <CardTitle>{value.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-base font-poppins ">{value.description}</p>
-                </CardContent>
-                <CardFooter>
-                  <Link
-                    href={value.link}
-                    target="blank"
-                    className={cn(
-                      buttonVariants({ variant: "default", size: "lg" }),
-                      "w-full gap-3"
-                    )}
-                  >
-                    {" "}
-                    <ExternalLink />
-                    Visit here
-                  </Link>
-                </CardFooter>
-              </Card>
-            </FramerWrapper>
-          );
-        })}
+        {portfolioConfig.moreLinks.length > 0 ? (
+          portfolioConfig.moreLinks.map((value, indx) => {
+            return (
+              <FramerWrapper
+                key={indx}
+                className="max-w-[32%] max-lg:max-w-full"
+                y={0}
+                scale={0.8}
+                delay={indx / 4}
+                duration={0.15}
+              >
+                <Card className="w-full">
+                  <CardHeader>
+                    <CardTitle>{value.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-base font-poppins ">{value.description}</p>
+                  </CardContent>
+                  <CardFooter>
+                    <Link
+                      href={value.link}
+                      target="blank"
+                      className={cn(
+                        buttonVariants({ variant: "default", size: "lg" }),
+                        "w-full gap-3"
+                      )}
+                    >
+                      {" "}
+                      <ExternalLink />
+                      Visit here
+                    </Link>
+                  </CardFooter>
+                </Card>
+              </FramerWrapper>
+            );
+          })
+        ) : (
+          <div className="w-full flex items-center justify-center py-12">
+            <p className="text-muted-foreground text-center">
+              No additional links available at the moment.
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );
