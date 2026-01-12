@@ -9,7 +9,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import FramerWrapper from "./animation/FramerWrapper";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Github } from "lucide-react";
+import Image from "next/image";
 
 interface ProjectCardProps {
   value: {
@@ -17,71 +18,108 @@ interface ProjectCardProps {
     description: string;
     tags: string[];
     link: string;
+    github?: string;
   };
   num: number;
 }
 
+// Tech stack icons mapping
+const techIcons: { [key: string]: string } = {
+  'React': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
+  'Nextjs': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg',
+  'Typescript': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg',
+  'Javascript': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
+  'Nodejs': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
+  'Express': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg',
+  'Mongodb': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg',
+  'Tailwind': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg',
+  'MySQL': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg',
+  'PostgreSQL': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg',
+  'Python': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
+  'Laravel': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg',
+  'Angular': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg',
+  'Vue': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg',
+  'Zustand': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg', // Using React icon as fallback
+  'Shadcn Ui': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg', // Using React icon as fallback
+};
+
 const ProjectCards: React.FC<ProjectCardProps> = ({ value, num }) => {
   return (
-    <FramerWrapper 
-      className="max-w-[32%] max-lg:max-w-full" 
-      y={0} 
-      scale={0.8} 
-      delay={num/4} 
+    <FramerWrapper
+      className="max-w-[32%] max-lg:max-w-full"
+      y={0}
+      scale={0.8}
+      delay={num/4}
       duration={0.15}
     >
       <Card className="w-full h-full flex flex-col hover:shadow-lg transition-all duration-300 border-2">
         <CardHeader className="pb-2">
           <CardTitle className="text-xl font-bold text-primary">{value.title}</CardTitle>
         </CardHeader>
-        
+
         <CardContent className="flex-grow flex flex-col gap-4">
           <p className="text-sm text-muted-foreground leading-relaxed">{value.description}</p>
-          
+
           <div className="flex flex-wrap gap-2">
             {value.tags.map((tag: string, index: number) => {
-              const tagStyles = {
-                'Nextjs': 'bg-teal-100 text-teal-800',
-                'Freelancing': 'bg-yellow-100 text-yellow-800',
-                'Shadcn Ui': 'bg-blue-100 text-blue-800',
-                'Typescript': 'bg-red-100 text-red-800',
-                'MySQL': 'bg-orange-100 text-orange-800',
-                'Zustand': 'bg-purple-100 text-purple-800',
-                'Supabase': 'bg-emerald-100 text-emerald-800',
-                'Npx': 'bg-indigo-100 text-indigo-800',
-                'Library': 'bg-pink-100 text-pink-800',
-                'Zod': 'bg-cyan-100 text-cyan-800',
-                'React Hook Form': 'bg-violet-100 text-violet-800'
-              }[tag] || 'bg-gray-100 text-gray-800';
+              const icon = techIcons[tag];
 
               return (
-                <span 
+                <div
                   key={index}
-                  className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${tagStyles}`}
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-secondary/50 hover:bg-secondary transition-colors border border-border"
+                  title={tag}
                 >
-                  {tag}
-                </span>
+                  {icon && (
+                    <Image
+                      src={icon}
+                      alt={tag}
+                      width={16}
+                      height={16}
+                      className="object-contain"
+                    />
+                  )}
+                  <span className="text-xs font-medium text-foreground">{tag}</span>
+                </div>
               );
             })}
           </div>
         </CardContent>
 
-        <CardFooter className="pt-2 ">
+        <CardFooter className="pt-2 flex gap-2">
           <Link
             href={value.link}
             target="_blank"
             rel="noopener noreferrer"
             className={cn(
-              buttonVariants({ 
-                variant: "default", 
-                size: "sm" 
+              buttonVariants({
+                variant: "default",
+                size: "sm"
               }),
-              "w-fit transition-all hover:translate-y-[-2px] hover:shadow-md group"
+              "flex-1 transition-all hover:translate-y-[-2px] hover:shadow-md group"
             )}
           >
-            Visit Project 
+            Visit Project
             <ArrowUpRight className="h-4 w-4 ml-1 hidden group-hover:block -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
           </Link>
+
+          {value.github && (
+            <Link
+              href={value.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn(
+                buttonVariants({
+                  variant: "outline",
+                  size: "sm"
+                }),
+                "transition-all hover:translate-y-[-2px] hover:shadow-md group"
+              )}
+              title="View on GitHub"
+            >
+              <Github className="h-4 w-4" />
+            </Link>
+          )}
         </CardFooter>
       </Card>
     </FramerWrapper>

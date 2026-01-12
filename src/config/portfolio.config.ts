@@ -22,22 +22,7 @@ export const portfolioConfig = {
     url: "https://mdtaquiimam.vercel.app",
     twitterHandle: "Benfatahayyoub",
     keywords: [
-      "md",
-      "taqui",
-      "imam",
-      "Md",
-      "MD",
-      "TAQUI",
-      "Taqui",
-      "Imam",
-      "Imam",
-      "Md Taqui Imam",
-      "md taqui imam",
-      "mdtaqui",
-      "mdtaquiimam",
-      "taqui imam",
-      "Taqui Imam",
-      "Taquiimam",
+      "Ayyoub benfatah",
       "portfolio",
       "web developer",
       "web",
@@ -62,7 +47,7 @@ export const portfolioConfig = {
     bio: "I'm a passionate full-stack developer focused on building modern, scalable web applications. I love turning complex problems into elegant solutions. With strong attention to detail and efficient delivery, I build seamless web experiences that combine functionality with elegant design.",
     hobbies: [
       "Coding",
-      "Playing Games",
+      "Playing Chess",
       "Automation Passion",
       "Creating Cool Projects",
     ],
@@ -105,6 +90,14 @@ export const portfolioConfig = {
         name: "Python",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
       },
+      {
+        name: "C#",
+        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
+      },
+      {
+        name: "Java",
+        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+      },
     ],
     frameworks: [
       {
@@ -124,12 +117,12 @@ export const portfolioConfig = {
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
       },
       {
-        name: "Bootstrap",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg",
+        name: "Angular",
+        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg",
       },
       {
-        name: "Material UI",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/materialui/materialui-original.svg",
+        name: "Laravel",
+        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg",
       },
     ],
     tools: [
@@ -184,6 +177,7 @@ export const portfolioConfig = {
         "German language exam preparation platform with interactive exercises and question types",
       tags: ["Tailwind", "Mongodb", "Shadcn Ui", "Nextjs","Express","Nodejs", "Zustand"],
       link: "https://telc-demo.vercel.app/",
+      github: "https://github.com/bnfhayyob/telc-demo", // Add your actual repo URL
     },
     {
       title: "🚗 Car Rental System",
@@ -191,6 +185,7 @@ export const portfolioConfig = {
         "Full-stack car rental application with booking management and authentication.",
       tags: ["React", "Mongodb", "Tailwind", "Nodejs", "Express","Javascript"],
       link: "https://car-rental-ayb.vercel.app/",
+      github: "https://github.com/bnfhayyob/CarRental", // Add your actual repo URL
     },
     {
       title: "🌍 Kosta Tours",
@@ -198,6 +193,7 @@ export const portfolioConfig = {
         "Tourism and travel booking platform with modern UI/UX.",
       tags: ["React", "Typescript", "Shadcn Ui","Mongodb", "Nodejs","Express"],
       link: "https://kosta-ebon.vercel.app/",
+      github: "https://github.com/bnfhayyob/kosta-tours", // Add your actual repo URL
     }
   ],
 
