@@ -29,8 +29,18 @@ const Aboutfooter = () => {
               {val.icon}
               {val.name}
             </h1>
-            <div className="flex gap-2 justify-center items-center flex-row text-xl text-primary pt-3 max-lg:justify-start">
-              <Circle className="h-3 w-3" /> {Array.isArray(val.answer) ? val.answer.join(", ") : val.answer}
+            <div className="flex gap-2 justify-center items-center flex-row text-xl text-primary pt-3 max-lg:justify-start flex-wrap">
+              {Array.isArray(val.answer) ? (
+                val.answer.map((item, idx) => (
+                  <div key={idx} className="flex gap-2 items-center">
+                    <Circle className="h-3 w-3" /> {item}
+                  </div>
+                ))
+              ) : (
+                <>
+                  <Circle className="h-3 w-3" /> {val.answer}
+                </>
+              )}
             </div>
           </div>
         );
