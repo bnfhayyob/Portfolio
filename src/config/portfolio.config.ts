@@ -194,6 +194,14 @@ export const portfolioConfig = {
       tags: ["React", "Typescript", "Shadcn Ui","Mongodb", "Nodejs","Express"],
       link: "https://kosta-ebon.vercel.app/",
       github: "https://github.com/bnfhayyob/kosta-tours", // Add your actual repo URL
+    },
+    {
+      title: "📝 Blog Platform",
+      description:
+        "Modern blogging platform built with Next.js, MongoDB, Axios, and shadcn/ui",
+      tags: ["Nextjs", "Typescript", "Shadcn Ui","Mongodb", "Tailwind","Axios"],
+      link: "https://blogger-omega-seven.vercel.app/",
+      github: "https://github.com/bnfhayyob/next-blog-app", // Add your actual repo URL
     }
   ],
 
